@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function findCases()
+        {
+            //document.getElementById("Data").innerHTML="";
+            const country=document.getElementById("count").value;
+            fetch("https://api.covid19api.com/live/country/"+country)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                append(data);
+            })
+        }
+        function append(data) {
+            table = document.createElement("TABLE");
+            table.border = "1"
+            row = table.insertRow(0);
+            cell1 = row.insertCell(0)
+            cell2 = row.insertCell(1)
+            cell1.innerHTML = 'Province'
+            cell2.innerHTML = 'Active Cases'
+            for (var i = 0; i < data.length; i++) {
+                row = table.insertRow(-1);
+                cell1 = row.insertCell(0)
+                cell1.innerHTML = data[i].Province
+                cell1 = row.insertCell(1)
+                cell1.innerHTML = data[i].Active
+            }
+            document.getElementById("data").append(table);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="Enter country name:" id="count">
+        <input type="button" value="Find" onclick="findCases()">
+    </div>
+    <div id="data">
+
+    </div>
+    
+</body>
+</html>
