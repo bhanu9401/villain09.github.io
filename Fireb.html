@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+        <script src="fireb.js"></script>
+    </head>
+    <body>
+        <center>
+        <h2>CRUD Operation in Firebase</h2>
+        <br><br>
+        <table height="20%" style="background-color: rgb(184, 142, 224); border-radius: 10%;">
+        <tr>
+            <td >
+                <label>Name</label>
+            </td>
+            <td colspan="3">
+                <input type="text" id="name"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Rollno</label>
+            </td>
+            <td colspan="3">
+                <input type="text" id="rollno"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="insert" onclick="insertf()" style="width: 100%;">Insert</button>
+            </td>
+            <td>
+                <button id="delete" onclick="deletef()" style="width: 100%;">Delete</button>
+            </td>
+            <td>
+                <button id="update" onclick="update()" style="width: 100%;">Update</button>
+            </td>
+            <td>
+                <button id="Read" onclick="get()" style="width: 100%;"> Get </button>
+            </td>
+        </tr>
+        </table>
+        <div id="data">
+        </div>
+    </center>
+    </body>
+</html>
